@@ -7,6 +7,8 @@ public class mouse_look : MonoBehaviour
     float RotationX = 0f;
     public Transform playerBody;
 
+    public Animator HandAnimator;
+
     public Camera fpsCam;
     public Points points;
     public AudioSource mp3;
@@ -41,6 +43,8 @@ public class mouse_look : MonoBehaviour
         mp3.time = 0.1f;
         mp3.pitch = Random.Range(0.5f,1.3f);
         mp3.Play();
+        HandAnimator.Play("Armature|Button_01_Press");
+        
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 1000))
         {
